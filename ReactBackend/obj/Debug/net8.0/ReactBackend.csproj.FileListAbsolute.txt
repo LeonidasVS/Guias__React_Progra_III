@@ -12,3 +12,4 @@ C:\Users\ENVY\Documents\Programacion III\Guias_React_C#\ReactBackend\ReactBacken
 C:\Users\ENVY\Documents\Programacion III\Guias_React_C#\ReactBackend\ReactBackend\obj\Debug\net8.0\ReactBackend.pdb
 C:\Users\ENVY\Documents\Programacion III\Guias_React_C#\ReactBackend\ReactBackend\obj\Debug\net8.0\ReactBackend.genruntimeconfig.cache
 C:\Users\ENVY\Documents\Programacion III\Guias_React_C#\ReactBackend\ReactBackend\obj\Debug\net8.0\ref\ReactBackend.dll
+C:\Users\ENVY\Documents\Programacion III\Guias_React_C#\ReactBackend\ReactBackend\obj\Debug\net8.0\ReactBackend.sourcelink.json
