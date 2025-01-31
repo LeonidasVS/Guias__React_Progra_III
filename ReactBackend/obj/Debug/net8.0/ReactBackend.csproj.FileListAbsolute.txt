@@ -1,0 +1,14 @@
+C:\Users\ENVY\Documents\Programacion III\Guias_React_C#\ReactBackend\ReactBackend\bin\Debug\net8.0\ReactBackend.deps.json
+C:\Users\ENVY\Documents\Programacion III\Guias_React_C#\ReactBackend\ReactBackend\bin\Debug\net8.0\ReactBackend.runtimeconfig.json
+C:\Users\ENVY\Documents\Programacion III\Guias_React_C#\ReactBackend\ReactBackend\bin\Debug\net8.0\ReactBackend.dll
+C:\Users\ENVY\Documents\Programacion III\Guias_React_C#\ReactBackend\ReactBackend\bin\Debug\net8.0\ReactBackend.pdb
+C:\Users\ENVY\Documents\Programacion III\Guias_React_C#\ReactBackend\ReactBackend\obj\Debug\net8.0\ReactBackend.csproj.AssemblyReference.cache
+C:\Users\ENVY\Documents\Programacion III\Guias_React_C#\ReactBackend\ReactBackend\obj\Debug\net8.0\ReactBackend.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ENVY\Documents\Programacion III\Guias_React_C#\ReactBackend\ReactBackend\obj\Debug\net8.0\ReactBackend.AssemblyInfoInputs.cache
+C:\Users\ENVY\Documents\Programacion III\Guias_React_C#\ReactBackend\ReactBackend\obj\Debug\net8.0\ReactBackend.AssemblyInfo.cs
+C:\Users\ENVY\Documents\Programacion III\Guias_React_C#\ReactBackend\ReactBackend\obj\Debug\net8.0\ReactBackend.csproj.CoreCompileInputs.cache
+C:\Users\ENVY\Documents\Programacion III\Guias_React_C#\ReactBackend\ReactBackend\obj\Debug\net8.0\ReactBackend.dll
+C:\Users\ENVY\Documents\Programacion III\Guias_React_C#\ReactBackend\ReactBackend\obj\Debug\net8.0\refint\ReactBackend.dll
+C:\Users\ENVY\Documents\Programacion III\Guias_React_C#\ReactBackend\ReactBackend\obj\Debug\net8.0\ReactBackend.pdb
+C:\Users\ENVY\Documents\Programacion III\Guias_React_C#\ReactBackend\ReactBackend\obj\Debug\net8.0\ReactBackend.genruntimeconfig.cache
+C:\Users\ENVY\Documents\Programacion III\Guias_React_C#\ReactBackend\ReactBackend\obj\Debug\net8.0\ref\ReactBackend.dll
