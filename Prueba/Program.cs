@@ -6,7 +6,7 @@ using ReactBackend.Repository;
 
 
 AlumnoDAO alumnoDao = new AlumnoDAO(); // abstracion del objeto DAO
-
+/*
 #region Select All
 var alumno =alumnoDao.SelectAll(); // Llamamos al metodo creado
 
@@ -56,7 +56,19 @@ Console.WriteLine(resultado);
 
 #region Eliminar
 
+
+
 var resultado = alumnoDao.EliminarAlumno(12);
 Console.WriteLine("Se elimino"+resultado);
+#endregion
+*/
+
+#region AlumnoAsignatura desde un Join
+var alumnoAsig = alumnoDao.SeleccionarAlumnoConAsignatura();
+
+foreach (AlumnoAsignatura item in alumnoAsig)
+{
+    Console.WriteLine(item.nombreAlumno+ " | Cursa: "+item.nombreAsignatura);
+}
 #endregion
 
