@@ -7,7 +7,7 @@ namespace WebApi.Controllers
     [ApiController]
     public class PruebaControllers : ControllerBase
     {
-        [HttpGet("Prueba")]
+        [HttpGet("prueba")]
 
         public string Get() {
             return "Hola mundo";        
