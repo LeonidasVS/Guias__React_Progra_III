@@ -123,5 +123,24 @@ namespace ReactBackend.Repository
             return consulta.ToList();
         }
         #endregion
+
+        public List<AlumnoProfesor> alumnoProfesores(string nombreProfesor)
+        {
+            var listadoAlumno = from a in contexto.Alumnos
+                                join m in contexto.Matriculas on a.Id equals m.AlumnoId
+                                join asig in contexto.Asignaturas on m.AsignaturaId equals asig.Id
+                                where asig.Profesor == nombreProfesor
+                                select new AlumnoProfesor
+                                {
+                                    Id=a.Id,
+                                    Dni=a.Dni,
+                                    Nombre=a.Nombre,
+                                    Direccion=a.Direccion,
+                                    Edad=a.Edad,
+                                    Email=a.Email,
+                                    asignatura=asig.Nombre
+                                };
+            return listadoAlumno.ToList();  
+        }
     }
 }
