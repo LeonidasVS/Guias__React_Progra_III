@@ -142,5 +142,31 @@ namespace ReactBackend.Repository
                                 };
             return listadoAlumno.ToList();  
         }
+
+        public bool update(int id, Alumno alumno)
+        {
+            try
+            {
+                var buscarAlumno=GetById(id);
+                if (buscarAlumno == null) {
+                    return false;
+                }
+                else
+                {
+                    buscarAlumno.Nombre = alumno.Nombre;
+                    buscarAlumno.Dni = alumno.Dni;
+                    buscarAlumno.Direccion = alumno.Direccion;
+                    buscarAlumno.Edad = alumno.Edad;    
+                    buscarAlumno.Email = alumno.Email;
+
+                    contexto.Alumnos.Update(buscarAlumno);
+                    contexto.SaveChanges();
+                    return true;
+                }
+            }
+            catch (Exception ex) { 
+                return false;
+            }
+        }
     }
 }
