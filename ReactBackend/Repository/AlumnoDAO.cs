@@ -168,5 +168,65 @@ namespace ReactBackend.Repository
                 return false;
             }
         }
+
+
+        public Alumno DNIAlumno(Alumno alumno)
+        {
+            var alumnos=contexto.Alumnos.Where(a=>a.Dni == alumno.Dni).FirstOrDefault();
+
+            return alumnos == null ? null : alumnos;
+        }
+
+        public bool InsertarMatricula(Alumno alumno, int idAsing)
+        { 
+            try
+            {
+                var alumnoDNI = DNIAlumno(alumno);
+                if (alumnoDNI == null)
+                {
+                    insertarAlumno(alumno);
+
+                    var alumnoInsertado = DNIAlumno(alumno);
+
+                    var unirAlumnoMatricula = matriculaAsignaturaALumno(alumno, idAsing);
+
+                    if (unirAlumnoMatricula == false)
+                    {
+                        return false;
+                    }
+
+                    return true;
+                }
+                else
+                {
+                    matriculaAsignaturaALumno(alumnoDNI, idAsing);
+                    return true;
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return false;
+            }
+        }
+
+        public bool matriculaAsignaturaALumno(Alumno alumno, int idAsignatura)
+        {
+            try
+            {
+                Matricula matricula= new Matricula();
+                matricula.AlumnoId = alumno.Id;
+                matricula.AsignaturaId = idAsignatura;
+
+                contexto.Matriculas.Add(matricula);
+                contexto.SaveChanges();
+                return true;
+            }
+            catch (Exception ex) {
+                return false;
+            } 
+        }
     }
 }
