@@ -36,5 +36,10 @@ namespace WebApi.Controllers
         {
             return alumno.InsertarMatricula(alumnom, idAsignatura);
         }
+
+        [HttpDelete("alumno")]
+        public bool eliminarALumno(int id) {
+            return alumno.eliminarAlumno(id);
+        }
     }
 }

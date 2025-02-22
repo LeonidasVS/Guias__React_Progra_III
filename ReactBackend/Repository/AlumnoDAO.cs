@@ -10,12 +10,12 @@ namespace ReactBackend.Repository
 {
     public class AlumnoDAO
     {
-        public RegistroAlumnoContext contexto= new RegistroAlumnoContext();
+        public RegistroAlumnoContext contexto = new RegistroAlumnoContext();
 
         #region Seleccionar
         public List<Alumno> SelectAll()
         {
-            var alumno=contexto.Alumnos.ToList<Alumno>();
+            var alumno = contexto.Alumnos.ToList<Alumno>();
             return alumno;
         }
         #endregion
@@ -23,7 +23,7 @@ namespace ReactBackend.Repository
         #region Seleccionar por ID
         public Alumno? GetById(int id)
         {
-            var alumno=contexto.Alumnos.Where(x=>x.Id==id).FirstOrDefault();    
+            var alumno = contexto.Alumnos.Where(x => x.Id == id).FirstOrDefault();
             return alumno == null ? null : alumno;
         }
         #endregion
@@ -33,12 +33,13 @@ namespace ReactBackend.Repository
         {
             try
             {
-                var alum = new Alumno {
-                Direccion=alumno.Direccion,
-                Edad=alumno.Edad,
-                Email=alumno.Email,
-                Dni=alumno.Dni, 
-                Nombre=alumno.Nombre,
+                var alum = new Alumno
+                {
+                    Direccion = alumno.Direccion,
+                    Edad = alumno.Edad,
+                    Email = alumno.Email,
+                    Dni = alumno.Dni,
+                    Nombre = alumno.Nombre,
                 };
 
                 contexto.Alumnos.Add(alum);
@@ -46,7 +47,8 @@ namespace ReactBackend.Repository
 
                 return true;
             }
-            catch (Exception ex) { 
+            catch (Exception ex)
+            {
                 return false;
             }
         }
@@ -55,19 +57,21 @@ namespace ReactBackend.Repository
         #region ActualizarAlumno
         public bool actualizarAlumno(int id, Alumno actualizar)
         {
-            try{
-                var alumnoActualiza=GetById(id);
-                if (alumnoActualiza== null) {
+            try
+            {
+                var alumnoActualiza = GetById(id);
+                if (alumnoActualiza == null)
+                {
 
                     Console.WriteLine("Alumno es inexistente");
                     return false;
-                }   
+                }
 
-                alumnoActualiza.Direccion=actualizar.Direccion;
-                alumnoActualiza.Dni=actualizar.Dni;
-                alumnoActualiza.Nombre=actualizar.Nombre;
-                alumnoActualiza.Email=actualizar.Email;
-                alumnoActualiza.Edad=actualizar.Edad;
+                alumnoActualiza.Direccion = actualizar.Direccion;
+                alumnoActualiza.Dni = actualizar.Dni;
+                alumnoActualiza.Nombre = actualizar.Nombre;
+                alumnoActualiza.Email = actualizar.Email;
+                alumnoActualiza.Edad = actualizar.Edad;
 
 
                 contexto.Alumnos.Update(alumnoActualiza);
@@ -75,7 +79,8 @@ namespace ReactBackend.Repository
 
                 return true;
             }
-            catch (Exception ex) { 
+            catch (Exception ex)
+            {
 
                 Console.WriteLine(ex.ToString()); return false;
             }
@@ -89,7 +94,7 @@ namespace ReactBackend.Repository
 
             try
             {
-                if(borrarAlumno== null)
+                if (borrarAlumno == null)
                 {
                     return false;
                 }
@@ -102,7 +107,7 @@ namespace ReactBackend.Repository
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.InnerException); return false; 
+                Console.WriteLine(ex.InnerException); return false;
 
             }
         }
@@ -132,23 +137,24 @@ namespace ReactBackend.Repository
                                 where asig.Profesor == nombreProfesor
                                 select new AlumnoProfesor
                                 {
-                                    Id=a.Id,
-                                    Dni=a.Dni,
-                                    Nombre=a.Nombre,
-                                    Direccion=a.Direccion,
-                                    Edad=a.Edad,
-                                    Email=a.Email,
-                                    asignatura=asig.Nombre
+                                    Id = a.Id,
+                                    Dni = a.Dni,
+                                    Nombre = a.Nombre,
+                                    Direccion = a.Direccion,
+                                    Edad = a.Edad,
+                                    Email = a.Email,
+                                    asignatura = asig.Nombre
                                 };
-            return listadoAlumno.ToList();  
+            return listadoAlumno.ToList();
         }
 
         public bool update(int id, Alumno alumno)
         {
             try
             {
-                var buscarAlumno=GetById(id);
-                if (buscarAlumno == null) {
+                var buscarAlumno = GetById(id);
+                if (buscarAlumno == null)
+                {
                     return false;
                 }
                 else
@@ -156,7 +162,7 @@ namespace ReactBackend.Repository
                     buscarAlumno.Nombre = alumno.Nombre;
                     buscarAlumno.Dni = alumno.Dni;
                     buscarAlumno.Direccion = alumno.Direccion;
-                    buscarAlumno.Edad = alumno.Edad;    
+                    buscarAlumno.Edad = alumno.Edad;
                     buscarAlumno.Email = alumno.Email;
 
                     contexto.Alumnos.Update(buscarAlumno);
@@ -164,7 +170,8 @@ namespace ReactBackend.Repository
                     return true;
                 }
             }
-            catch (Exception ex) { 
+            catch (Exception ex)
+            {
                 return false;
             }
         }
@@ -172,13 +179,13 @@ namespace ReactBackend.Repository
 
         public Alumno DNIAlumno(Alumno alumno)
         {
-            var alumnos=contexto.Alumnos.Where(a=>a.Dni == alumno.Dni).FirstOrDefault();
+            var alumnos = contexto.Alumnos.Where(a => a.Dni == alumno.Dni).FirstOrDefault();
 
             return alumnos == null ? null : alumnos;
         }
 
         public bool InsertarMatricula(Alumno alumno, int idAsing)
-        { 
+        {
             try
             {
                 var alumnoDNI = DNIAlumno(alumno);
@@ -216,7 +223,7 @@ namespace ReactBackend.Repository
         {
             try
             {
-                Matricula matricula= new Matricula();
+                Matricula matricula = new Matricula();
                 matricula.AlumnoId = alumno.Id;
                 matricula.AsignaturaId = idAsignatura;
 
@@ -224,9 +231,51 @@ namespace ReactBackend.Repository
                 contexto.SaveChanges();
                 return true;
             }
-            catch (Exception ex) {
+            catch (Exception ex)
+            {
                 return false;
-            } 
+            }
+        }
+
+        public bool eliminarAlumno(int id)
+        {
+            try
+            {
+                // Debemos verificar el id del alumno
+                var alumno = contexto.Alumnos.Where(x => x.Id == id).FirstOrDefault();
+                if (alumno != null)
+                {
+                    // matriculaAlumno == idALumno
+                    var matriculaA = contexto.Matriculas.Where(x => x.AlumnoId == alumno.Id).ToList();
+                    Console.WriteLine("Alumno  encontrado");
+                    //Traemos la calificaciones asociadas a esa matricula 
+                    foreach (Matricula m in matriculaA)
+                    {
+                        var calificacion = contexto.Calificacions.Where(x => x.MatriculaId == m.Id).ToList();
+                        Console.WriteLine("Matricula encontrada");
+                        contexto.Calificacions.RemoveRange(calificacion);
+
+                    }
+                    contexto.Matriculas.RemoveRange(matriculaA);
+                    contexto.Alumnos.Remove(alumno);
+                    contexto.SaveChanges();
+                    return true;
+                }
+                else
+                {
+                    Console.WriteLine("Alumno no encontrado");
+                    return false;
+                }
+
+
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return false;
+
+            }
         }
     }
 }
