@@ -34,5 +34,23 @@ namespace ReactBackend.Repository
                 return null;
             }
         }
+
+        public bool insertar(Calificacion calificacion)
+        {
+            try
+            {
+                if (calificacion == null)
+                {
+                    return false;
+                }
+
+                var addCakificacion=_contexto.Calificacions.Add(calificacion);
+                _contexto.SaveChanges();
+                return true;
+            }
+            catch (Exception ex) {
+                return false;
+            }
+        }
     }
 }
