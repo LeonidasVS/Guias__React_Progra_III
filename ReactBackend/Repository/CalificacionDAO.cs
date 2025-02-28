@@ -52,5 +52,29 @@ namespace ReactBackend.Repository
                 return false;
             }
         }
+
+        public bool eliminar(int id)
+        {
+            var calificacion = _contexto.Calificacions.Where(s => s.Id == id).FirstOrDefault();
+
+            try
+            {
+                if (calificacion != null)
+                {
+                    _contexto.Calificacions.Remove(calificacion);
+                    _contexto.SaveChanges();
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                return false;
+            }
+        }
     }
 }
